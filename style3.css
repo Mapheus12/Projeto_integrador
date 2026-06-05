@@ -1,0 +1,17 @@
+.p5Canvas {
+    display: block;
+    margin: auto; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body {
+  background-color: #00c687;
+}
+
+canvas{
+    border: 5px solid rgb(86, 143, 0);
+    border-radius: 15px;
+}
