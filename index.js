@@ -24,6 +24,7 @@ function draw() {
   imageMode(CENTER);
   background(10, 10, 20, 200);
   
+  stroke(255)
   for (let i = 0;i< 200; i++){
     
     let shine = map(estrelas[i][2], 1, 5, 1, 10);
@@ -32,37 +33,44 @@ function draw() {
     point(estrelas[i][0],estrelas[i][1]);
   }
   
+
+  let btnW = 120;
+  let btnH = 40;
+  let btn1X = width / 2 - 150 - btnW / 2;
+  let btn1Y = height - 100;
+  let btn2X = width / 2 + 150 - btnW / 2;
+  let btn2Y = height - 100;
+
   fill(255);
-  rect(15, 30, 3, 35);
-
-  rect(50, 310, 100, 30);
-  rect(250, 310, 100, 30);
-
-  fill(0);
-  textSize(15);
-  text('Escolha uma rota para iniciar sua missão', 24, 51);
-  text('Esquerda', 68, 330);
-  text('Direita', 278, 330);
-
-
-  // O SOL
-  push();
-
-  translate(width/2, height/2);
-  rotate(angulo);
-
-  // brilho do sol
   noStroke();
-  fill(255, 200, 50, 50); // Transparent yellow
-  // Apply the BLUR filter.
+  textSize(20);
+  textAlign(CENTER, CENTER);
+  text('Escolha uma rota para iniciar sua missão', width / 2, 60);
 
-  circle(0, 0, 120 + sin(frameCount * 0.05) * 10); // Pulsating effect
+  // Button 1 (Esquerda)
+  if (mouseX >= btn1X && mouseX <= btn1X + btnW && mouseY >= btn1Y && mouseY <= btn1Y + btnH) {
+    fill(200, 200, 255); // Hover color
+    cursor(HAND);        // Change cursor to pointer
+  } else {
+    fill(255);
+  }
+  rect(btn1X, btn1Y, btnW, btnH, 10); // '10' adds rounded corners
 
-  // desenha o sol centralizado
-   image(sol, 0, 0, 100, 100);
+  // Button 2 (Direita)
+  if (mouseX >= btn2X && mouseX <= btn2X + btnW && mouseY >= btn2Y && mouseY <= btn2Y + btnH) {
+    fill(200, 200, 255); 
+    cursor(HAND);        
+  } else {
+    fill(255);
+  }
+  rect(btn2X, btn2Y, btnW, btnH, 10);
 
-  // volta ao estado anterior da tela, auxiliando não interferir em outras configurações
-  pop();
+  // Button Text
+  fill(0);
+  textSize(16);
+  text('Esquerda', btn1X + btnW / 2, btn1Y + btnH / 2);
+  text('Direita', btn2X + btnW / 2, btn2Y + btnH / 2);
+
 
   // aumenta o ângulo
   angulo += 0.02;
@@ -79,12 +87,15 @@ function draw() {
   x++;
   
   // condição para a nave retornar a tela após chegar no final
-  if( x > width)
-    x = -70;
+  if (x > width / 2 + 50) {
+    x = -width / 2 - 50;
+  }
   
   // faz com que a nave se movimemnte para cima e para baixo
   y = 20 * sin(x / 10) +150;
 
+
+  
 }
 function mouseClicked(){
 
@@ -97,10 +108,10 @@ function mouseClicked(){
 
   // Logica para o primeiro botao
   if (mouseX >= btn1X && mouseX <= btn1X + btnW && mouseY >= btn1Y && mouseY <= btn1Y + btnH) {
-    window.location.href = 'tela2.html';
+    window.location.href = 'tela1.html';
   } 
   // logica para o segundo botao
   else if (mouseX >= btn2X && mouseX <= btn2X + btnW && mouseY >= btn2Y && mouseY <= btn2Y + btnH) {
-    window.location.href = 'tela3.html';
+    window.location.href = 'tela2.html';
   }
 }
