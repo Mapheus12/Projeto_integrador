@@ -21,6 +21,7 @@ function setup() {
 }
 
 function draw() {
+  imageMode(CENTER);
   background(10, 10, 20, 200);
   
   for (let i = 0;i< 200; i++){
@@ -44,16 +45,21 @@ function draw() {
   text('Direita', 278, 330);
 
 
+  // O SOL
   push();
 
-  // move o ponto de rotação
-  translate(200, 150);
-
-  // gira
+  translate(width/2, height/2);
   rotate(angulo);
 
+  // brilho do sol
+  noStroke();
+  fill(255, 200, 50, 50); // Transparent yellow
+  // Apply the BLUR filter.
+
+  circle(0, 0, 120 + sin(frameCount * 0.05) * 10); // Pulsating effect
+
   // desenha o sol centralizado
-   image(sol, -50, -50, 100, 100);
+   image(sol, 0, 0, 100, 100);
 
   // volta ao estado anterior da tela, auxiliando não interferir em outras configurações
   pop();
@@ -61,10 +67,10 @@ function draw() {
   // aumenta o ângulo
   angulo += 0.02;
   
-  //nave
+  //NAVE
   
   // move o ponto de rotação
-  translate(0,200);
+  translate(width/2,height/2);
   
   // desenha a nave
   image(nave, x, y, 100, 100);
@@ -77,7 +83,7 @@ function draw() {
     x = -70;
   
   // faz com que a nave se movimemnte para cima e para baixo
-  y = 20 * sin(x / 10) + 5;
+  y = 20 * sin(x / 10) +150;
 
 }
 function mouseClicked(){
