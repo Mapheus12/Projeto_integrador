@@ -14,7 +14,7 @@
 
 
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
       objetos[i] = [];
       objetos[i][2] = loadImage(`./RESOURCES/pantano_objetos/${i}.png`);
     }
@@ -25,7 +25,7 @@
 
     // --- 1. CONFIGURAÇÃO DOS OBJETOS MÓVEIS (Loop) ---
     // Índices: [0]=X, [1]=Y, [2]=Imagem, [3]=vX, [4]=vY, [5]=offsetX, [6]=offsetY
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
       objetos[i][0] = random(100, width - 100);  
       objetos[i][1] = random(200, height - 200); // Mantém mais no centro da água
       objetos[i][2].resize(0, 90);               
@@ -83,7 +83,7 @@
 
     noStroke();
     
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
       
       // Atualiza apenas a posição X (vY é sempre 0)
       objetos[i][0] += objetos[i][3]; 

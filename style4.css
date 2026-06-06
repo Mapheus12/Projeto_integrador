@@ -15,9 +15,10 @@
     height: 100vh;
     object-fit: cover; 
     z-index: -1;
+    filter: blur(8px); 
 }
 
 canvas{
-    border: 5px solid rgb(120, 8, 8);
+    border: 5px solid rgb(86, 143, 0);
     border-radius: 15px;
 }
